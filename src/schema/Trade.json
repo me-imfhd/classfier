@@ -1,0 +1,67 @@
+{
+  "$ref": "#/definitions/Trade",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "Token": {
+      "additionalProperties": false,
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "symbol",
+        "address"
+      ],
+      "type": "object"
+    },
+    "Trade": {
+      "additionalProperties": false,
+      "properties": {
+        "inputToken": {
+          "$ref": "#/definitions/Token"
+        },
+        "outputToken": {
+          "$ref": "#/definitions/Token"
+        },
+        "tradeDetails": {
+          "additionalProperties": false,
+          "properties": {
+            "amount": {
+              "type": "number"
+            },
+            "slippage": {
+              "type": "number"
+            },
+            "swapIntetion": {
+              "enum": [
+                "SpendInput",
+                "ReceiveOutput"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "amount",
+            "slippage",
+            "swapIntetion"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "inputToken",
+        "outputToken",
+        "tradeDetails"
+      ],
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "$ref": "#/definitions/IntentClassification",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "IntentClassification": {
+      "additionalProperties": false,
+      "properties": {
+        "intent_type": {
+          "enum": [
+            "Greeting",
+            "General",
+            "Unknown",
+            "TokenIntent",
+            "ExplainTransactionIntent"
+          ],
+          "type": "string"
+        },
+        "token_intent": {
+          "additionalProperties": false,
+          "properties": {
+            "context": {
+              "type": "string"
+            },
+            "intent_type": {
+              "enum": [
+                "Price",
+                "Trade",
+                "TrendingTokens",
+                "Market",
+                "Info"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "context",
+            "intent_type"
+          ],
+          "type": "object"
+        },
+        "transaction_hash": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}
