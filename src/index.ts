@@ -65,7 +65,7 @@ async function example() {
     } else if (classification.intent_type === "General") {
       console.log("Found General:", classification.intent_type);
     } else if (classification.intent_type === "ExplainTransactionIntent") {
-      console.log("Found ExplainTransactionIntent:", classification.intent_type);
+      console.log("Found ExplainTransactionIntent:", classification.transaction_hash);
     } else {
       console.log("Found Unknown:", classification.intent_type);
     }
